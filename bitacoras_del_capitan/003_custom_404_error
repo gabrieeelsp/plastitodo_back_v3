@@ -1,0 +1,19 @@
+//custom 404 error
+/app/Exceptions/Handler.php
+
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+public function register()
+    {
+        /* $this->reportable(function (Throwable $e) {
+            //
+        }); */
+
+        $this->renderable(function (NotFoundHttpException $e, $request) {
+            //if($request->wantsJSon()){
+            if($request->is('api/*')){
+                return response()->json(['message' => 'Not found'], 404);
+            }
+            
+        });
+    }
