@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(ModelofactSeeder::class);
+        $this->call(IvaconditionSeeder::class);
+        
         $this->call(UserSeeder::class);
         $this->call(EmpresaSeeder::class);
         $this->call(SucursalSeeder::class);
@@ -20,6 +23,9 @@ class DatabaseSeeder extends Seeder
         $this->call(StockproductSeeder::class);
 
         $this->call(PaymentmethodSeeder::class);
+        
+
+        
 
     }
 }

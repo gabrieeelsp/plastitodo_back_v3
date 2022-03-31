@@ -22,6 +22,9 @@ class UserSeeder extends Seeder
             'password' => bcrypt('secret999'),
 
             'role' => 4,
+            'ivacondition_id' => 1,
+            'modelofact_id' => 1,
+            'fact_default' => true,
 
             'tipo' => 'MINORISTA',
         ]);
@@ -32,6 +35,9 @@ class UserSeeder extends Seeder
             'password' => bcrypt('secret999'),
 
             'role' => 0,
+            'ivacondition_id' => 3,
+            'modelofact_id' => 3,
+            'fact_default' => false,
 
             'tipo' => 'MINORISTA',
         ]);

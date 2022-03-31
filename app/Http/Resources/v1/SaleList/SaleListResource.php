@@ -40,7 +40,14 @@ class SaleListResource extends JsonResource
                     'attributes' => [
                         'name' => $this->sucursal->name
                     ] 
-                ]
+                ],
+                'comprobante' => $this->comprobante ? [
+                    'id' => $this->comprobante->id,
+                    'attributes' => [
+                        'punto_venta' => $this->comprobante->punto_venta,
+                        'numero' => $this->comprobante->numero
+                    ] 
+                ] : null,
                 
             ]
         ]; 

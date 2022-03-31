@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmpresasTable extends Migration
+class CreateModelofactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateEmpresasTable extends Migration
      */
     public function up()
     {
-        Schema::create('empresas', function (Blueprint $table) {
+        Schema::create('modelofacts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->decimal('monto_max_no_id_efectivo')->nullable();
+            $table->decimal('monto_max_no_id_electronico')->nullable();
+            $table->decimal('monto_max')->nullable();
 
-            $table->string('cuit');
+            $table->boolean('is_enable')->default(true);
             //$table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateEmpresasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empresas');
+        Schema::dropIfExists('modelofacts');
     }
 }

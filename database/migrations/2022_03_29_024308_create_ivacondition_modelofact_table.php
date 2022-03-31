@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmpresasTable extends Migration
+class CreateIvaconditionModelofactTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateEmpresasTable extends Migration
      */
     public function up()
     {
-        Schema::create('empresas', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-
-            $table->string('cuit');
-            //$table->timestamps();
+        Schema::create('ivacondition_modelofact', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('ivacondition_id')->unsigned();
+            $table->integer('modelofact_id')->unsigned();
         });
     }
 
@@ -29,6 +27,6 @@ class CreateEmpresasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empresas');
+        Schema::dropIfExists('ivacondition_modelofact');
     }
 }

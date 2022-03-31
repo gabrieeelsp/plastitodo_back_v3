@@ -35,6 +35,12 @@ class CreateUsersTable extends Migration
             $table->string('cuit')->nullable();
             $table->string('direccion_fact')->nullable();
             $table->string('coments_client', 200)->nullable();
+
+            $table->boolean('fact_default')->default(false);
+
+            $table->foreignId('ivacondition_id')->nullable()->constrained('ivaconditions')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreignId('modelofact_id')->nullable()->constrained('modelofacts')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

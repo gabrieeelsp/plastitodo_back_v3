@@ -28,7 +28,24 @@ class ClientResource extends JsonResource
                 'cuit' => $this->cuit,
                 'direccion_fact' => $this->direccion_fact,
 
-                'coments_client' => $this->coments_client
+                'coments_client' => $this->coments_client,
+                
+                'fact_default' => $this->fact_default
+            ],
+            'relationships' => [
+                'ivacondition' => $this->ivacondition ? [
+                    'id' => $this->ivacondition->id,
+                    'attributes' => [
+                        'name' => $this->ivacondition->name,
+                    ] 
+                ] : null,
+                'modelofact' => $this->modelofact ? [
+                    'id' => $this->modelofact->id,
+                    'attributes' => [
+                        'name' => $this->modelofact->name,
+                    ] 
+                ] : null,
+                
             ]
         ]; 
         //return parent::toArray($request);

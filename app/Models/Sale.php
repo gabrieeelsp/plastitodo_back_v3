@@ -52,4 +52,9 @@ class Sale extends Model
     {
         return $this->hasMany(Debitnote::class);
     }
+
+    public function comprobante()
+    {
+        return $this->morphOne(Comprobante::class, 'comprobanteable');
+    }
 }

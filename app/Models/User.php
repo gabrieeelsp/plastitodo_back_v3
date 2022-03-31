@@ -43,4 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function ivacondition()
+    {
+        return $this->belongsTo(Ivacondition::class);
+    }
+
+    public function modelofact()
+    {
+        return $this->belongsTo(Modelofact::class);
+    }
 }

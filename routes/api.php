@@ -26,6 +26,11 @@ use App\Http\Controllers\api\v1\PaymentmethodController;
 use App\Http\Controllers\api\v1\PaymentController;
 use App\Http\Controllers\api\v1\RefondController;
 
+use App\Http\Controllers\api\v1\ModelofactController;
+use App\Http\Controllers\api\v1\IvaconditionController;
+
+use App\Http\Controllers\api\v1\ComprobanteController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -82,4 +87,10 @@ Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
     Route::resource('refonds', RefondController::class)->only(['store']);
 
     Route::resource('paymentmethods', PaymentmethodController::class)->only(['index', 'show']);
+
+    Route::resource('modelofacts', ModelofactController::class)->only(['index', 'show']);
+
+    Route::resource('ivaconditions', IvaconditionController::class)->only(['index', 'show']);
+
+    Route::post('sales/make_comprobante_factura', [ComprobanteController::class, 'make_comprobante_factura']);
 });
