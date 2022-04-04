@@ -14,5 +14,14 @@ class Ivacondition extends Model
         return $this->belongsToMany(Modelofact::class);
     }
 
+    public function accept_modelofact ($id) {
+        foreach ( $this->modelofacts as $item) {
+            if ( $item->id == $id ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public $timestamps = false;
 }

@@ -139,6 +139,7 @@ class SaleController extends Controller
                 $saleItem->saleproduct()->associate($item['sale_product_id']);
                 $saleItem->precio = $item['precio'];
                 $saleItem->cantidad = $item['cantidad'];
+                $saleItem->iva_id = $saleItem->saleproduct->stockproduct->iva_id;
                 
                 if ( $saleItem->saleproduct->stockproduct->is_stock_unitario_kilo ) {
                     $saleItem->cantidad_total = $item['cantidad_total'];

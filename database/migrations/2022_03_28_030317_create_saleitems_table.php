@@ -26,6 +26,7 @@ class CreateSaleitemsTable extends Migration
 
             $table->foreignId('saleproduct_id')->constrained('saleproducts')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('sale_id')->constrained('sales')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('iva_id')->constrained('ivas')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -24,6 +24,8 @@ class UserSeeder extends Seeder
             'role' => 4,
             'ivacondition_id' => 1,
             'modelofact_id' => 1,
+            'tipo_id' => 'CUIT',
+            'numero_id' => '20458967939',
             'fact_default' => true,
 
             'tipo' => 'MINORISTA',

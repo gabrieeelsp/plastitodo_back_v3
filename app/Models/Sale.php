@@ -57,4 +57,51 @@ class Sale extends Model
     {
         return $this->morphOne(Comprobante::class, 'comprobanteable');
     }
+
+    // Importe neto no gravado
+    public function ImpTotConc() 
+    {
+        return 0;
+    }
+
+    // Importe neto gravado
+    public function getImpNeto()
+    {
+        $impNeto = 0;
+        foreach ( $this->saleItems as $saleItem ) {
+            $impNeto = round($impNeto + $saleItem->getImpNeto(), 2, PHP_ROUND_HALF_UP);
+        } 
+        return $impNeto;
+    }
+
+    // Importe total de IVA
+    public function getImpIVA() 
+    {
+        return round($this->total - $this->getImpNeto(), 2, PHP_ROUND_HALF_UP);
+    }
+
+    // Importe total de IVA 
+    public function getImpIvaEsp($iva_id) 
+    {
+        $impIvaEsp = 0;
+        foreach ( $this->saleItems as $saleItem ) {
+            if ( $saleItem->iva->id == $iva_id ){
+                $impIvaEsp = round($impIvaEsp + $saleItem->getImpIvaEsp(), 2, PHP_ROUND_HALF_UP);
+            }
+            
+        } 
+        return $impIvaEsp;
+    }
+
+    public function getBaseImpIvaEsp($iva_id) 
+    {
+        $baseImpIvaEsp = 0;
+        foreach ( $this->saleItems as $saleItem ) {
+            if ( $saleItem->iva->id == $iva_id ){
+                $baseImpIvaEsp = round($baseImpIvaEsp + $saleItem->getImpNeto(), 2, PHP_ROUND_HALF_UP);
+            }
+            
+        } 
+        return $baseImpIvaEsp;
+    }
 }

@@ -17,10 +17,11 @@ class CreateStockproductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('costo', 15, 4)->default(0);
-            $table->decimal('iva', 5,2)->default(21);
 
             $table->boolean('is_stock_unitario_kilo')->default(false);
             $table->decimal('stock_aproximado_unidad', 15, 4)->default(0);
+
+            $table->foreignId('iva_id')->constrained('ivas')->onUpdate('cascade')->onDelete('cascade');
             
             $table->timestamps();
         });

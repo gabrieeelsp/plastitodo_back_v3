@@ -19,7 +19,8 @@ class StockproductSeeder extends Seeder
     {
         DB::table('stockproducts')->insert([
             'name' => "Cacao Amargo 1,00Kg ALPINO",
-            'costo' => 100
+            'costo' => 100,
+            'iva_id' => 1
         ]);
         foreach(Sucursal::all() as $sucursal){
             DB::table('stocksucursals')->insert([
@@ -43,7 +44,8 @@ class StockproductSeeder extends Seeder
 #--------------------------------------------------- 2
         DB::table('stockproducts')->insert([
             'name' => "Cacao Amargo 0,10Kg ALPINO",
-            'costo' => 10
+            'costo' => 10,
+            'iva_id' => 1
         ]);
         foreach(Sucursal::all() as $sucursal){
             DB::table('stocksucursals')->insert([
@@ -70,7 +72,8 @@ class StockproductSeeder extends Seeder
 
         DB::table('stockproducts')->insert([
             'name' => "Bandeja de Carton Nro 1 GRIS UNIDAD",
-            'costo' => 3.6
+            'costo' => 3.6,
+            'iva_id' => 1
         ]);
         foreach(Sucursal::all() as $sucursal){
             DB::table('stocksucursals')->insert([
@@ -103,7 +106,8 @@ class StockproductSeeder extends Seeder
 #--------------------------------------------------- 4
         DB::table('stockproducts')->insert([
             'name' => "Bandeja de Carton Nro 2 GRIS UNIDAD",
-            'costo' => 4.3
+            'costo' => 4.3,
+            'iva_id' => 1
         ]);
         foreach(Sucursal::all() as $sucursal){
             DB::table('stocksucursals')->insert([
@@ -136,7 +140,8 @@ class StockproductSeeder extends Seeder
 #--------------------------------------------------- 5
         DB::table('stockproducts')->insert([
             'name' => "Bandeja de Carton Nro 3 GRIS UNIDAD",
-            'costo' => 5.6
+            'costo' => 5.6,
+            'iva_id' => 1
         ]);
         foreach(Sucursal::all() as $sucursal){
             DB::table('stocksucursals')->insert([
@@ -172,7 +177,8 @@ class StockproductSeeder extends Seeder
             'name' => "Papel Prensa en Bobina 40 cm",
             'costo' => 180,
             'is_stock_unitario_kilo' => true,
-            'stock_aproximado_unidad' => 6
+            'stock_aproximado_unidad' => 6,
+            'iva_id' => 1
         ]);
         foreach(Sucursal::all() as $sucursal){
             DB::table('stocksucursals')->insert([

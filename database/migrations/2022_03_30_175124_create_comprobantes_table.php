@@ -18,6 +18,9 @@ class CreateComprobantesTable extends Migration
 
             $table->string('numero');
             $table->string('punto_venta');
+
+            $table->string('cae');
+            $table->timestamp('cae_fch_vto');
             
             $table->integer('comprobanteable_id');
             $table->string('comprobanteable_type');

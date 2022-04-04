@@ -4,6 +4,8 @@ namespace App\Http\Resources\v1\SaleList;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+use Carbon\Carbon;
+
 class SaleListResource extends JsonResource
 {
     /**
@@ -45,7 +47,10 @@ class SaleListResource extends JsonResource
                     'id' => $this->comprobante->id,
                     'attributes' => [
                         'punto_venta' => $this->comprobante->punto_venta,
-                        'numero' => $this->comprobante->numero
+                        'numero' => $this->comprobante->numero,
+                        'cae' => $this->comprobante->cae,
+                        'cae_fch_vto' => date('d M Y - H:i', Carbon::parse($this->comprobante->cae_fch_vto)->timestamp),
+                        'tipo' => $this->comprobante->modelofact->name
                     ] 
                 ] : null,
                 

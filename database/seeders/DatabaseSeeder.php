@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(ModelofactSeeder::class);
         $this->call(IvaconditionSeeder::class);
+
+        $this->call(IvaSeeder::class);
         
         $this->call(UserSeeder::class);
         $this->call(EmpresaSeeder::class);
@@ -23,6 +25,8 @@ class DatabaseSeeder extends Seeder
         $this->call(StockproductSeeder::class);
 
         $this->call(PaymentmethodSeeder::class);
+
+
         
 
         

@@ -17,6 +17,7 @@ class EmpresaSeeder extends Seeder
     {
         DB::table('empresas')->insert([
             'name' => "Plastitodo",
+            'cuit' => '30714071633'
         ]);
     }
 }

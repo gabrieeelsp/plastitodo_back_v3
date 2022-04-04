@@ -15,6 +15,11 @@ class Saleitem extends Model
     {
         return $this->belongsTo(Saleproduct::class);
     }
+    
+    public function iva ()
+    {
+        return $this->belongsTo(Iva::class);
+    }
 
     public function sale()
     {
@@ -40,5 +45,24 @@ class Saleitem extends Model
             $cant = $cant - $devitem->cantidad_total;
         }
         return $cant;
+    }
+
+    // Importe neto gravado
+    public function getImpNeto()
+    {
+        if ( $this->saleproduct->stockproduct->is_stock_unitario_kilo ) {
+            $impNeto = round($this->precio * $this->cantidad_total, 4, PHP_ROUND_HALF_UP);
+        }else {
+            $impNeto = round($this->precio * $this->cantidad, 4, PHP_ROUND_HALF_UP);
+        }
+        
+
+        return round($impNeto / (1 + round($this->iva->valor / 100, 4, PHP_ROUND_HALF_UP)), 2, PHP_ROUND_HALF_UP);
+    }
+    
+
+    public function getImpIvaEsp ( ) {
+        $imp = round($this->precio * $this->cantidad, 4, PHP_ROUND_HALF_UP);
+        return round($imp - $this->getImpNeto(), 2, PHP_ROUND_HALF_UP);
     }
 }

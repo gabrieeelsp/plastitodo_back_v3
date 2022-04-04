@@ -31,8 +31,9 @@ class CreateUsersTable extends Migration
 
             $table->enum('tipo', ['MINORISTA','MAYORISTA'])->default('MINORISTA');
             $table->decimal('saldo', 15, 4)->default(0);
-
-            $table->string('cuit')->nullable();
+            
+            $table->string('tipo_id')->nullable();
+            $table->string('numero_id')->nullable();
             $table->string('direccion_fact')->nullable();
             $table->string('coments_client', 200)->nullable();
 
